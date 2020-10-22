@@ -1,5 +1,5 @@
 {
-  "name": "elm-i18next-gen",
+  "name": "@aircast/elm-i18next-gen",
   "version": "1.0.3",
   "description": "Code generation for elm-i18next",
   "main": "index.js",
