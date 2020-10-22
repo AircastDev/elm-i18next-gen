@@ -18,12 +18,13 @@ program
         "Ensures that if the any of the target files exist, they will be overwritten. If this argument isn't supplied and any of the target files exist, the process will abort.")
     .option("-w, --watch", "Watches the source file for changes and regenerates the code whenever it does.")
     .option("-f, --fallback", "Generates functions which receive a list of fallback languages.")
+    .option("-p, --pick <pick>", "Pick out an object from the source file, rather than using the root")
 
 program.parse(process.argv)
 
 try {
     const generate = () => executeCodeGeneration(
-        program.source, program.target, program.watch || program.overwrite, program.fallback)
+        program.source, program.target, program.watch || program.overwrite, program.fallback, program.pick)
 
     if (program.watch) {
         const writeResult = (msg = `Code generated at ${program.target}`, isSuccess = true) => {
